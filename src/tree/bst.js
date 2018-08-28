@@ -27,6 +27,28 @@ class BST {
     }
     return this.insertNode(curNode.right, newNode);
   }
+
+  getMinKey() {
+    let minNode = this.root;
+    if (minNode) {
+      while (minNode && minNode.left) {
+        minNode = minNode.left;
+      }
+      return minNode.key;
+    }
+    return null;
+  }
+
+  getMaxKey() {
+    let maxNode = this.root;
+    if (maxNode) {
+      while (maxNode && maxNode.right) {
+        maxNode = maxNode.right;
+      }
+      return maxNode.key;
+    }
+    return null;
+  }
 }
 
 module.exports = BST;

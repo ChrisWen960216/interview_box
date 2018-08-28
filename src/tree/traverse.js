@@ -37,6 +37,9 @@ function insertNode(bst) {
 
 const newBst = new BST(10);
 const bst = insertNode(newBst);
+const minNode = bst.getMinKey();
+const maxNode = bst.getMaxKey();
 inOrderTraverse(bst.root);
-preOrderTraverse(bst.root);
-postOrderTraverse(bst.root);
+console.log(colors.green(minNode, maxNode));
+// preOrderTraverse(bst.root);
+// postOrderTraverse(bst.root);
