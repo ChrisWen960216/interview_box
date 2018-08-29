@@ -28,26 +28,60 @@ class BST {
     return this.insertNode(curNode.right, newNode);
   }
 
-  getMinKey() {
+  getMinNode() {
     let minNode = this.root;
     if (minNode) {
       while (minNode && minNode.left) {
         minNode = minNode.left;
       }
-      return minNode.key;
+      return minNode;
     }
     return null;
   }
 
-  getMaxKey() {
+  getMaxNode() {
     let maxNode = this.root;
     if (maxNode) {
       while (maxNode && maxNode.right) {
         maxNode = maxNode.right;
       }
-      return maxNode.key;
+      return maxNode;
     }
     return null;
+  }
+
+  remove(key) {
+    return this.removeNode(this.root, key);
+  }
+
+  removeNode(node, key) {
+    if (!node) {
+      return null;
+    }
+
+    if (node.key > key) {
+      return node.left = this.removeNode(node.left, key);
+    }
+    if (node.key < key) {
+      return node.right = this.removeNode(node.right, key);
+    }
+    if (node.key === key) {
+      if (node.left === null && node.right === null) {
+        return node = null;
+      }
+      if (node.left === null && node.right) {
+        return node = node.right;
+      }
+      if (node.right === null && node.left) {
+        return node = node.left;
+      }
+      if (node.left && node.right) {
+        const minNode = this.getMinNode(node);
+        node.key = minNode.key;
+        node.right = this.removeNode(node.right, minNode.key);
+        return node;
+      }
+    }
   }
 }
 
