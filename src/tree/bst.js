@@ -65,23 +65,22 @@ class BST {
     if (node.key < key) {
       return node.right = this.removeNode(node.right, key);
     }
-    if (node.key === key) {
-      if (node.left === null && node.right === null) {
-        return node = null;
-      }
-      if (node.left === null && node.right) {
-        return node = node.right;
-      }
-      if (node.right === null && node.left) {
-        return node = node.left;
-      }
-      if (node.left && node.right) {
-        const minNode = this.getMinNode(node);
-        node.key = minNode.key;
-        node.right = this.removeNode(node.right, minNode.key);
-        return node;
-      }
+    if (node.left === null && node.right === null) {
+      return node = null;
     }
+    if (node.left === null && node.right) {
+      return node = node.right;
+    }
+    if (node.right === null && node.left) {
+      return node = node.left;
+    }
+    if (node.left && node.right) {
+      const minNode = this.getMinNode(node);
+      node.key = minNode.key;
+      node.right = this.removeNode(node.right, minNode.key);
+      return node;
+    }
+    return false;
   }
 }
 
