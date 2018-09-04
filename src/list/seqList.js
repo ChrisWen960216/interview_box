@@ -18,6 +18,27 @@ class SeqList {
     return this.list;
   }
 
+  delete(number) {
+    const { length } = this.list;
+    const index = this.list.indexOf(number);
+    if (index < 0) { return false; }
+    if (index === 0) {
+      this.list.shift();
+      return this.list;
+    } if (index === (length - 1)) {
+      this.list.pop();
+      return this.list;
+    }
+    for (let i = index; i < length; i += 1) {
+      if (!this.list[i + 1]) {
+        this.list.pop();
+        return this.list;
+      }
+      this.list[i] = this.list[i + 1];
+    }
+    return this.list;
+  }
+
   getLength() {
     return this.list.length;
   }
@@ -32,10 +53,8 @@ class SeqList {
   }
 
   print() {
-    console.log(this.list);
+    console.log(this.list.toString());
   }
 }
 
-const A = new SeqList([1, 2, 3, 4]);
-A.insert(4, 10);
-A.print();
+module.exports = SeqList;
