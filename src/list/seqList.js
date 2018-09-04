@@ -18,6 +18,19 @@ class SeqList {
     return this.list;
   }
 
+  getLength() {
+    return this.list.length;
+  }
+
+  isBlank() {
+    if (this.list.length === 0) { return true; }
+    return false;
+  }
+
+  search(number) {
+    return this.list.indexOf(number);
+  }
+
   print() {
     console.log(this.list);
   }
