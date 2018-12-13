@@ -1,12 +1,12 @@
 class SingleLink {
-  constructor(singleLinkeNode) {
-    this.head = singleLinkeNode;
+  constructor(singleLinkNode) {
+    this.head = singleLinkNode;
     this.head.next = null;
     this.length = 0;
   }
 
-  insertNode(singleLinkeNode) {
-    const newNode = singleLinkeNode;
+  insertNode(singleLinkNode) {
+    const newNode = singleLinkNode;
     let currentNode = this.head;
     while (currentNode.next !== null) {
       currentNode = currentNode.next;
