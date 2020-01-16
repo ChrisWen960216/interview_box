@@ -6,14 +6,15 @@ function printListFromTailToHead(head) {
     current = current.next;
   }
   const final = stack.pop();
-  console.log(final, stack);
+  let _current = final;
   while (stack.length > 0) {
     if (stack.length === 1) {
-      const _head = stack.pop();
-      _head.next = null;
-      final.next = _head;
+      _current.next = stack.pop();
+      _current = _current.next;
+      _current.next = null;
     } else {
-      final.next = stack.pop();
+      _current.next = stack.pop();
+      _current = _current.next;
     }
   }
   return final;
@@ -25,10 +26,7 @@ const link = {
     val: 2,
     next: {
       val: 3,
-      next: {
-        val: 4,
-        next: null,
-      },
+      next: null,
     },
   },
 };
