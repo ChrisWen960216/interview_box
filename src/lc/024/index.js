@@ -7,22 +7,4 @@ function swapPairs(head) {
   return head;
 }
 
-
-const _list = {
-  val: 1,
-  next: {
-    val: 2,
-    next: null,
-    // next: {
-    //   val: 3,
-    //   next: {
-    //     val: 4,
-    //     next: null,
-    //   },
-    // },
-  },
-};
-
-swapPairs(_list);
-
 module.exports = { swapPairs };
