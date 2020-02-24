@@ -1,6 +1,6 @@
-Function.prototype._bind = function _bind(target) {
+Function.prototype._bind = function _bind(target, ...args) {
   const fn = this;
-  return (args) => { fn.call(target, args); };
+  return () => { fn.call(target, args); };
 };
 
 Function.prototype._call = function _call(context, ...args) {
